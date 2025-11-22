@@ -1,10 +1,11 @@
+import Image from "next/image";
 
 
 export const Navbar = () => {
   return (
 		<nav className="p-6 flex justify-between border-b border-zinc-800 mx-auto max-w-5xl">
 			<div className="flex gap-4 items-center">
-				<img src="" alt="" className="h-[40px] w-[40px] bg-fuchsia-950 rounded-full" />
+				<Image src="/build.png" alt="" className="bg-fuchsia-950 rounded-full" width={40} height={40}/>
 				<div>
 					<h4 className="font-semibold text-lg">Manni</h4>
 					<p className="text-sm">FID: 1120583</p>
