@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
+import { Navbar } from "@/components/navbar";
 
 export const metadata: Metadata = {
 	title: "build",
@@ -25,12 +26,47 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`antialiased`}
-      >
-        {children}
-      </body>
-    </html>
-  );
+		<html lang="en">
+			<body className={`antialiased`} style={{position:'relative', minHeight:'100vh'}}>
+				<div
+					style={{
+						
+						backgroundImage: `url('/dark-background.gif')`,
+						backgroundSize: "cover",
+						backgroundPosition:'center',
+						width:'100%',
+						height: "100%",
+						position: "fixed",
+						top: 0,
+						left: 0,
+						zIndex: -2,
+					}}
+				/>
+
+				{/* DARK OVERLAY */}
+				<div
+					style={{
+						position: "fixed",
+						top: 0,
+						left: 0,
+						height: "100%",
+						width: "100%",
+						background: "rgba(0, 0, 0, 0.78)",
+						zIndex: -1,
+					}}
+				/>
+
+				<main
+					style={{
+						position: "relative",
+						zIndex: 1,
+						color: "white",
+						
+					}}>
+					<Navbar />
+					{children}
+				</main>
+			</body>
+		</html>
+	);
 }
